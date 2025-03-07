@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+<title>Edit Blog</title>
+{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/blog_create.css' %}" />
+{% endblock %}
+{% block content %}
+<main>
+  <h1>Edit Blog Post</h1>
+  <form action="" method = "post" class="add-form">
+    {% csrf_token %}
+    {{form.as_p }}
+    <input type="submit" value=Submit class="add-submit-btn ">
+  </form>
+</main>
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+<title>Contact Us</title>
+{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/contact.css' %}" />
+{% endblock %}
+{% block content %}
+
+<main class="contact-container">
+  <h1>Contact Us</h1>
+  <div class="contact-content">
+    <div class="contact-form">
+      <form>
+        <div class="input-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" placeholder="Enter your name" required>
+        </div>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Enter your email" required>
+        </div>
+        <div class="input-group">
+          <label for="message">Message</label>
+          <textarea id="message" rows="5" placeholder="Write your message here..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+    <div class="contact-info">
+      <h3>Get in Touch</h3>
+      <p><strong>Email:</strong> contact@example.com</p>
+      <p><strong>Phone:</strong> +91 9234567890</p>
+      <p><strong>Address:</strong> 123 Golbazar, Bilaspur, India</p>
+
+      
+      <div class="map-container">
+        {% comment %} <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434508879!2d144.9556518153183!3d-37.81732697975171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d45250c1a99%3A0x5045675218cee17!2sMelbourne%20VIC%2C%20Australia!5e0!3m2!1sen!2sin!4v1619820686931!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe> {% endcomment %}
+        <img src="{% static 'images/google-map.jpg' %}" alt="google-map">
+      </div> 
+    </div>
+  </div>
+</main>
+{% endblock content %}

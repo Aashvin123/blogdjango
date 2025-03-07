@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block title %}
+    <title>Home</title>
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    {% block extra_css %}
+    {% endblock %}
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="{% url 'home_page' %}">
+        <img src="{% static 'images/blog-logo.png' %}" alt="Logo">
+        </a>
+      </div>
+      <nav>
+        <a href="{% url 'home_page' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a>
+        <a href="{% url 'create_page' %}" class="{% if request.path == '/create/' %}active{% endif %}">Add Post</a>
+        <a href="{% url 'about_page' %}" class="{% if request.path == '/about/' %}active{% endif %}">About Us</a>
+        <a href="{% url 'contact_page' %}" class="{% if request.path == '/contact/' %}active{% endif %}">Contact Us</a>
+      </nav>
+      {% if user.is_authenticated %}
+      <div class="user-dropdown">
+      <button class="dropdown-btn" onclick="toggleDropdown()">Welcome to<span class="header-user">👤</span>{{ user.username }} ▼</button>
+      <div id="dropdown-menu" class="dropdown-content">
+      <a href="{% url 'password_change' %}">Change Password</a>
+      <a href="{% url 'password_reset' %}">Reset Password</a>
+      <form method="post" action="{% url 'logout' %}">
+        {% csrf_token %}
+        <button type="submit" class="logout-btn">Logout</button>
+      </form>
+      {% else %}
+      <div class="auth-buttons">
+        <a href="{% url 'signup' %}" class="header-signup-btn">Sign Up</a>
+        <a href="{% url 'login' %}" class="header-login-btn">Login</a>
+      </div>
+      {% endif %}
+    </header>
+    {% block content %}
+    {% endblock content %}
+    <footer>
+      <p>&copy; 2025 All Rights Reserved | Designed by Our</p>
+    </footer>
+  </body>
+</html>

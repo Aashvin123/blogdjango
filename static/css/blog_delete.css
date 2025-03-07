@@ -1,0 +1,27 @@
+main {
+    max-width: 50%;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  main h1{
+    text-align: center;
+    font-size: 25px;
+  }
+  .blog-delete{
+    text-align: center;
+  }
+
+  .blog-delete-btn {
+    background: #eb4c1b;
+    color: white;
+    margin-top: 10px;
+    font-size: 15px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }

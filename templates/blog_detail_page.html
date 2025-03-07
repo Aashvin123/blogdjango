@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+<title>{{post_detail.title}}</title>
+{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/blog_detail.css' %}" />
+{% endblock %}
+{% block content %}
+<main>
+  <h1>Blog Details</h1>
+  {% if post.author.pk == request.user.pk %}
+  <div class="blog-link">
+    <a href="{% url 'edit_blog' post.pk %}"><button class="blog-details-edit">Edit</button></a>
+    <a href="{% url 'delete_blog' post.pk %}"><button class="blog-details-delete">Delete</button></a>
+  </div>
+  {% endif %}
+  <div class="blog-details">
+    <h3 class="blog-title">{{post.title}}</h3>
+    <p class="blog-desc">{{post.body}}</p>
+    <p class="blog-author">{{post.author}} {{post.date}}</p>
+  </div>
+  <a href="{% url 'create_comment' post.pk %}" class="add-comment-btn">Add Comment</a>
+  <div class="mt-4 space-y-2">
+    {% if post.comment_set.count == 0 %}
+    <p>No comments yet.</p>
+    {% else %}
+    {% for comment in post.comment_set.all %}
+    <div>
+      <p>{{ comment.comment }}</p>
+      <div >
+        <span>👤{{ comment.author }}</span> &middot; <span>⏲️{{ comment.date }}</span>
+      </div>
+    </div>
+    <hr />
+    {% endfor %}
+    {% endif %}
+  </div>
+</main>
+{% endblock content %}

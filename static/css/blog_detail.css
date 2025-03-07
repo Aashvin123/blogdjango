@@ -1,0 +1,71 @@
+main {
+    max-width: 80%;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  main h1{
+    text-align: center;
+    font-size: 25px;
+  }
+  .blog-link{
+    float: right;
+  }
+  .blog-details-edit {
+    background: #27d617;
+    color: white;
+    font-size: 15px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  .blog-details-delete {
+    background: #eb4c1b;
+    color: white;
+    font-size: 15px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    
+}
+.add-comment-btn  {
+  font-size: 18px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+}
+
+.add-comment-btn {
+  background: #1b2edb;
+}
+
+
+  .blog-details{
+    margin-top: 20px;
+  }
+
+  .blog-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+.blog-desc {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+  .blog-author {
+    font-size: 13px;
+    font-weight: bold;
+    color: #007bff;
+    margin-top: auto;
+}
